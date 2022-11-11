@@ -14740,7 +14740,13 @@ MonoBehaviour:
   fireRate: 3.5
   projectileObjects:
   - {fileID: 1413877261856170, guid: 7120694aa5e8a9d4a88b1e61228dabb0, type: 3}
-  - {fileID: 1413877261856170, guid: 9876a9a98e1a05940a822557f483bda1, type: 3}
+  - {fileID: 1413877261856170, guid: 900b3811cb1a7cd418273a806abc717e, type: 3}
+  - {fileID: 1413877261856170, guid: 9a9e982063c25b046acdcd4841567ce9, type: 3}
+  - {fileID: 3635460946120524779, guid: 688b1e589e1bf184592ceb02f8305391, type: 3}
+  - {fileID: 1413877261856170, guid: 90813a09d55a2224db4edf357973f91f, type: 3}
+  - {fileID: 1413877261856170, guid: 499dcb895cf2840439bba0b55732e341, type: 3}
+  - {fileID: 1413877261856170, guid: dd80900edec5c7b459ba738913152095, type: 3}
+  - {fileID: 1413877261856170, guid: 645f7c1c57753f14f825c06da548b9dc, type: 3}
   nextFire: 0
   weaponPower: 1
   guns:
