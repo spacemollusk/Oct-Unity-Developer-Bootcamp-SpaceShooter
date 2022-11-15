@@ -41,12 +41,17 @@ public class PlayerMoving : MonoBehaviour {
         {
 #if UNITY_STANDALONE || UNITY_EDITOR    //if the current platform is not mobile, setting mouse handling 
 
-            if (Input.GetMouseButton(0)) //if mouse button was pressed       
-            {
-                Vector3 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition); //calculating mouse position in the worldspace
-                mousePosition.z = transform.position.z;
-                transform.position = Vector3.MoveTowards(transform.position, mousePosition, 30 * Time.deltaTime);
-            }
+            //if (Input.GetMouseButton(0)) //if mouse button was pressed       
+            //{
+            //    Vector3 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition); //calculating mouse position in the worldspace
+            //    mousePosition.z = transform.position.z;
+            //    transform.position = Vector3.MoveTowards(transform.position, mousePosition, 30 * Time.deltaTime);
+            //}
+
+            float horizontalInput = Input.GetAxisRaw("Horizontal");
+            float verticalInput = Input.GetAxisRaw("Vertical");
+            Vector3 movePosition = new Vector3 (horizontalInput, verticalInput);
+            transform.Translate(movePosition * 10f * Time.deltaTime);
 #endif
 
 #if UNITY_IOS || UNITY_ANDROID //if current platform is mobile, 
