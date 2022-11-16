@@ -49,6 +49,11 @@ public class PlayerMoving : MonoBehaviour {
             //    mousePosition.z = transform.position.z;
             //    transform.position = Vector3.MoveTowards(transform.position, mousePosition, 30 * Time.deltaTime);
             //}
+
+            float horizontalInput = Input.GetAxisRaw("Horizontal");
+            float verticalInput = Input.GetAxisRaw("Vertical");
+            Vector3 movePosition = new Vector3 (horizontalInput, verticalInput);
+            transform.Translate(movePosition * 10f * Time.deltaTime);
 #endif
 
 #if UNITY_IOS || UNITY_ANDROID //if current platform is mobile, 
