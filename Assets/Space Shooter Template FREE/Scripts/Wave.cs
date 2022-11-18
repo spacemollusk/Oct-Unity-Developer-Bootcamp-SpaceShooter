@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using TMPro;
 
 /// <summary>
 /// This script generates an enemy wave. It defines how many enemies will be emerging, their speed and emerging interval. 
@@ -49,7 +50,8 @@ public class Wave : MonoBehaviour {
     [Tooltip("if testMode is marked the wave will be re-generated after 3 sec")]
     public bool testMode;
     #endregion
-
+    [SerializeField]
+    private TMP_Text enemiesRemaining;
     private void Start()
     {
         StartCoroutine(CreateEnemyWave()); 
