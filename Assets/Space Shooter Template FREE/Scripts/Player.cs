@@ -10,20 +10,25 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public GameObject destructionFX;
+    public int lives = 3;
 
-    public static Player instance; 
+    public static Player instance;
 
     private void Awake()
     {
-        if (instance == null) 
+        if (instance == null)
             instance = this;
     }
 
     //method for damage proceccing by 'Player'
-    public void GetDamage(int damage)   
+    public void GetDamage(int damage)
     {
-        Destruction();
-    }    
+        lives -= damage;
+        if (lives == 0)
+        {
+            Destruction();
+        }
+    }
 
     //'Player's' destruction procedure
     void Destruction()
