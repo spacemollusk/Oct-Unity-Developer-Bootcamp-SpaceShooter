@@ -22,9 +22,25 @@ public class Enemy : MonoBehaviour {
     [HideInInspector] public float shotTimeMin, shotTimeMax; //max and min time for shooting from the beginning of the path
     #endregion
 
+    [Header("Shooting Settings")]
+    [SerializeField] private float shotTimer = 0.5f;
+    [SerializeField] private float shotSpeed = 1000f;
+
     private void Start()
     {
         Invoke("ActivateShooting", Random.Range(shotTimeMin, shotTimeMax));
+        shotTimeMin = 0.5f;
+        shotTimeMax = 1f;
+    }
+
+    private void Update()
+    {
+        shotTimer -= Time.deltaTime;
+        if (shotTimer <= 0)
+        {
+            ActivateShooting();
+            shotTimer = 0.5f;
+        }
     }
 
     //coroutine making a shot
@@ -32,7 +48,7 @@ public class Enemy : MonoBehaviour {
     {
         if (Random.value < (float)shotChance / 100)                             //if random value less than shot probability, making a shot
         {                         
-            Instantiate(Projectile,  gameObject.transform.position, Quaternion.identity);             
+           Instantiate(Projectile,  gameObject.transform.position, Quaternion.identity).transform.Translate(-Vector3.up *  Time.deltaTime * shotSpeed);
         }
     }
 
